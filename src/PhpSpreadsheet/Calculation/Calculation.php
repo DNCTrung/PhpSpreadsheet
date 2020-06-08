@@ -2990,6 +2990,10 @@ class Calculation
             return self::wrapResult($formula);
         }
 
+        if (preg_match('/INDIRECT\(/miu', $formula) !== 0) {
+            return self::wrapResult($formula);
+        }
+
         //    Basic validation that this is indeed a formula
         //    We simply return the cell value if not
         $formula = trim($formula);
